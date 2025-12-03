@@ -10,25 +10,18 @@ _day = 2 #Advent of Code day
 
 def main(data):
 
+    id_pat = re.compile(r"(\d+)\1+")
     ranges = data[0].split(",")
     count = 0
 
     for rang in ranges:
         ends = list(map(int, rang.split("-")))
-        diff = ends[1] - ends[0]
         print(rang)
-        
+
         for i in range(ends[0], ends[1]+1):
             text = str(i)
 
-            if (len(text) % 2 != 0):
-                continue
-            
-            half = len(text) // 2
-            front = text[:half]
-            back = text[half:]
-
-            if front == back:
+            if id_pat.fullmatch(text):
                 count += i
                 print(f"  {text}")
 
