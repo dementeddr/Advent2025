@@ -17,16 +17,16 @@ def main(data):
 
 if __name__ == "__main__":
     input_file = f"input-d{_day}.txt"
-    data = []
+    lines = []
 
     if len(sys.argv) > 1:
         input_file = sys.argv[1]
 
-    with open(input_file, "r") as fp:
-        data = fp.readlines()
+    with open(input_file, "r", encoding="ascii") as fp:
+        lines = fp.readlines()
 
     time_start = perf_counter_ns()
-    main(data)
+    main(lines)
     time_stop = perf_counter_ns()
 
     time = (time_stop - time_start) / 1000000
