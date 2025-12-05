@@ -65,8 +65,10 @@ try:
         print("Writing input file")
         with open(f"{dir_name}/input-d{day}.txt", "w") as in_fp:
             in_fp.write(input_file.text)
-except:
-    print("Exception while trying to create input file.")
+except Exception as ex:
+    print("Exception while trying to create input file:\n")
+    print(ex)
+    print()
     print_blank = True
     
 if print_blank:
