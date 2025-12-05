@@ -23,7 +23,7 @@ if __name__ == "__main__":
         input_file = sys.argv[1]
 
     with open(input_file, "r", encoding="ascii") as fp:
-        lines = fp.readlines()
+        lines = list(map(lambda l: l[:-1], fp.readlines()))
 
     time_start = perf_counter_ns()
     main(lines)
